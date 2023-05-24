@@ -62,16 +62,26 @@ le1.fit(df1)
 #use the route() decorator to tell Flask what URL should trigger our function.
 @app.route('/')
 def home():
-    return render_template('index.html')
+    categories = 'categories.html'
+    footer = 'footer.html'
+    return render_template(
+        'index.html',
+        categories=categories,
+        footer=footer
+        )
 
 
 
 @app.route('/predict',methods=['POST'])
 def predict():
     
-    img = request.files['image']
+    categories = 'categories.html'
+    footer = 'footer.html'
+    yellowLeafCurl = 'yellow-leaf-curl.html'
+    earlyBlight = 'early-blight.html'
+    lateBlight = 'late-blight.html'
     
-    copy_img = img
+    img = request.files['image']
     
     image_data = img.read()
     nparr = np.frombuffer(image_data, np.uint8)
@@ -112,8 +122,12 @@ def predict():
             prediction_disease=img_prediction_sub_1[0],
             prediction_text='Disease category is {}'.format(img_prediction[0]),
             prediction_text1='Disease prediction is {}'.format(img_prediction_sub_1[0]),
-            scroll_to='scroll_here'
-            # img_path=img_path
+            scroll_to='scroll_here',
+            categories=categories,
+            footer=footer,
+            yellowLeafCurl=yellowLeafCurl,
+            earlyBlight=earlyBlight,
+            lateBlight=lateBlight
             )
     else:
         print("Not class")
@@ -127,7 +141,11 @@ def predict():
             prediction_disease='Unknown',
             prediction_text='Percent with heart disease is {}'.format(img_prediction[0]),
             prediction_text1='Unknown',
-            # img_path=img_path
+            categories=categories,
+            footer=footer,
+            yellowLeafCurl=yellowLeafCurl,
+            earlyBlight=earlyBlight,
+            lateBlight=lateBlight
             )
 
 

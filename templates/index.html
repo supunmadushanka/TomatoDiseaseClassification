@@ -63,7 +63,7 @@
         Predict the tomato disease occurrence among 9 categories
         <br>
         </h5>
-    </div>
+      </div>
 
     <div class="row">
         <form onsubmit="return checkFile();" action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data" class="col s12">
@@ -100,259 +100,36 @@
       
           {% if prediction_disease=="Tomato___Tomato_Yellow_Leaf_Curl_Virus" %}
           
-          <hr style="margin-top:50px">
-          <div class="row center">
-              <h5 class="header col s12 light">
-              Disease prediction
-              </h5>
-          </div>
-          <h3 class="header center green-text">Tomato Yellow Leaf Curl Virus</h3>
-          <hr style="margin-bottom:20px">
-          
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Tomato_Yellow_Leaf_Curl/1.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Tomato_Yellow_Leaf_Curl/2.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Tomato_Yellow_Leaf_Curl/3.jpg">
-              </div>
-          </div>
-          
-          <div>
-              <h5 class="header center green-text">Introduction</h5>
-              <p style="font-size: 17px;line-hight: 5px">
-                  Tomato yellow leaf curl virus (TYLCV) is a plant virus that primarily affects tomato plants, but can also infect other plants in the family Solanaceae. It is transmitted by the whitefly Bemisia tabaci and causes a range of symptoms in infected plants, including yellowing and curling of the leaves, stunted growth, and reduced fruit production. TYLCV is a serious threat to tomato production in many parts of the world, and control measures are necessary to prevent economic damage to farmers.
-              </p>
-              <br>
-              <h5 class="header center green-text">Identification</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Symptoms of TYLCV include yellowing and curling of the leaves, upward curling of the leaf margins, and reduced leaf size</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Infected plants may also exhibit stunted growth and reduced fruit production</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Laboratory tests such as polymerase chain reaction (PCR) can be used to detect the virus in plant tissue</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Visual inspection and monitoring of plants for the presence of whiteflies can also help to identify potential sources of infection</li>
-              </ul>
-              <br>
-              <h5 class="header center green-text">Managing and Treatment</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use resistant tomato varieties, as some varieties have been bred to resist the virus</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use insecticides to control whiteflies and reduce the spread of TYLCV; follow label instructions to prevent the development of insecticide resistance</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Cultural practices such as crop rotation and weed control can help to reduce the spread of TYLCV by minimizing the presence of the insect vector</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Monitor crops for signs of infection and take action quickly to prevent the spread of the virus</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Remove and destroy infected plants to prevent further spread of the virus</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Practice good hygiene by cleaning tools and equipment to reduce the risk of virus transmission between plants</li>
-              </ul>
-          </div>
+              {% include yellowLeafCurl %}
           
           {% endif %}
+          
+          
           
           {% if prediction_disease=="Tomato___Early_blight" %}
           
-          <hr style="margin-top:50px">
-          <div class="row center">
-              <h5 class="header col s12 light">
-              Disease prediction
-              </h5>
-          </div>
-          <h3 class="header center green-text">Tomato Early Blight</h3>
-          <hr style="margin-bottom:20px">
-          
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Early_blight/1.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Early_blight/2.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Early_blight/3.jpg">
-              </div>
-          </div>
-          
-          <div>
-              <h5 class="header center green-text">Introduction</h5>
-              <p style="font-size: 17px;line-hight: 5px">
-                  Tomato early blight is a fungal disease caused by the fungus Alternaria solani. It is a common disease that affects tomato plants in many parts of the world, particularly in warm and humid environments. The disease primarily affects the leaves of the tomato plant, causing brown lesions that can lead to defoliation and reduced yield. Control measures for tomato early blight include the use of resistant tomato varieties, fungicides, and cultural practices such as crop rotation and good sanitation.
-              </p>
-              <br>
-              <h5 class="header center green-text">Identification</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Symptoms of tomato early blight include brown lesions on the leaves, which may have a target-like appearance with concentric rings of different colors</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Lesions may also appear on the stem and fruit of the tomato plant</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Infected leaves may become yellow and eventually fall off, leading to defoliation</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Under humid conditions, a fuzzy growth of the fungus may be visible on the lesions</li>
-              </ul>
-              <br>
-              <h5 class="header center green-text">Managing and Treatment</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use resistant tomato varieties that have been bred to resist early blight</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use fungicides to control early blight; follow label instructions and use a fungicide rotation to prevent the development of resistance</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Cultural practices such as crop rotation and good sanitation can help to reduce the incidence and severity of early blight</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Remove and destroy infected plant material to prevent the spread of the disease</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Practice good sanitation by removing weeds and debris that may harbor the fungus</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Maintain proper spacing between plants to promote good air circulation and reduce humidity</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Avoid overhead irrigation to prevent water from sitting on the leaves, which can promote fungal growth</li>
-              </ul>
-          </div>
+              {% include earlyBlight %}
           
           {% endif %}
+          
+          
           
           {% if prediction_disease=="Tomato___Late_blight" %}
           
-          <hr style="margin-top:50px">
-          <div class="row center">
-              <h5 class="header col s12 light">
-              Disease prediction
-              </h5>
-          </div>
-          <h3 class="header center green-text">Tomato Late Blight</h3>
-          <hr style="margin-bottom:20px">
-          
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Late_blight/1.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Late_blight/2.jpg">
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Late_blight/3.jpg">
-              </div>
-          </div>
-          
-          <div>
-              <h5 class="header center green-text">Introduction</h5>
-              <p style="font-size: 17px;line-hight: 5px">
-                  Tomato late blight is a fungal disease caused by the organism Phytophthora infestans. This disease is a significant threat to tomato production worldwide and can cause severe damage to the tomato crop if not controlled. The disease can spread rapidly in cool and humid conditions, leading to defoliation and loss of yield. Control measures for tomato late blight include the use of resistant tomato varieties, fungicides, and cultural practices such as good sanitation and proper plant spacing.
-              </p>
-              <br>
-              <h5 class="header center green-text">Identification</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Symptoms of tomato late blight include dark green to black lesions on leaves, which may have a water-soaked appearance and can rapidly spread to other leaves and fruit</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Infected leaves may become brown and papery, and the plant may exhibit a characteristic musty odor</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Under cool and humid conditions, a white, fuzzy growth of the fungus may be visible on the underside of infected leaves</li>
-              </ul>
-              <br>
-              <h5 class="header center green-text">Managing and Treatment</h5>
-              <ul>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use resistant tomato varieties that have been bred to resist late blight</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Use fungicides to control late blight; follow label instructions and use a fungicide rotation to prevent the development of resistance</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Cultural practices such as good sanitation, proper plant spacing, and crop rotation can help to reduce the incidence and severity of late blight</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Remove and destroy infected plant material to prevent the spread of the disease</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Practice good sanitation by removing weeds and debris that may harbor the fungus</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Maintain proper spacing between plants to promote good air circulation and reduce humidity</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Avoid overhead irrigation to prevent water from sitting on the leaves, which can promote fungal growth</li>
-                  <li style="font-size: 17px;margin-left: 15px;list-style-type: square;">Monitor plants closely for signs of infection and take action quickly to prevent the spread of the disease.</li>
-              </ul>
-          </div>
+              {% include lateBlight %}
           
           {% endif %}
           
-          </div>
+       </div>
           
           
-          <hr style="margin-top:70px;" id="Categories">
-              <h5 class="center header col s12 light">
-              Categories
-              </h5>
-          <hr style="margin-bottom:20px">
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Early_blight/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Early Blight</p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Late_blight/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Late Blight</p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Tomato_Yellow_Leaf_Curl/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Yellow Leaf Curl</p>
-              </div>
-          </div>
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Spider_mites/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Spider Mites </p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Leaf_Mold/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Leaf Mold</p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Mosaic_virus/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Mosaic Virus</p>
-              </div>
-          </div>
-          <div class="row center">
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Septoria_leaf_spot/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Septoria Leaf Spot</p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Bacterial_spot/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Bacterial Spot</p>
-              </div>
-              <div class="input-field col s4">
-                  <img onmouseover="this.style.transform='scale(1.3)'" onmouseout="this.style.transform='scale(1)'" style="transition: transform 0.3s ease-in-out;box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:200px;aspect-ration:1" src="../static/images/Powdery_mildew/1.jpg">
-                  <p style="margin-top:-3px;font-size: 17px;font-family: cursive;">Powdery Mildew</p>
-              </div>
-          </div>
+          {% include categories %}
           
-    </div>
+   </div>
     
-    <div class="green lighten-1" id="about-us" style="width:'100%', hight: 100px; padding-left: 40px;padding-right: 40px; margin-top:60px; padding-top: 20px">
-        <div class="row center">
-            <div class="input-field col s12 m3" style="border-left: 1px solid #ccc;border-right: 1px solid #ccc;">
-                <p style="color: white;margin-top:-3px;font-size: 17px;font-family: cursive;">
-                We are a group of three final year students from the Faculty of Information Technology, University of Moratuwa, working on a research project to identify tomato diseases using image processing and machine learning. Our goal is to develop a system that can accurately diagnose and classify different diseases affecting tomato plants, using computer vision techniques and advanced algorithms. Through this project, we hope to contribute to the field of agricultural technology and help farmers to improve their crop yield and quality. Thank you for visiting our website and supporting our work.
-                </p>
-            </div>
-            <div style="border-right: 1px solid #ccc;" class="input-field col s12 m3">
-                <img style="box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:150px;aspect-ration:1" src="../static/images/184097G.png">
-                <p style="color: white;margin-top:-3px;font-size: 17px;font-family: cursive;">K.A.S. Madushanka</p>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="width:30px;aspect-ration:1;filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);" src="../static/images/gmail.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/linkedin.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/facebook.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/insta.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/hacker.png">
-            </div>
-            <div style="border-right: 1px solid #ccc;" class="input-field col s12 m3">
-                <img style="box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:150px;aspect-ration:1" src="../static/images/184014D.png">
-                <p style="color: white;margin-top:-3px;font-size: 17px;font-family: cursive;">W.A.L. Ayesha</p>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="width:30px;aspect-ration:1;filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);" src="../static/images/gmail.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/linkedin.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/facebook.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/insta.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/hacker.png">
-            </div>
-            <div style="border-right: 1px solid #ccc;" class="input-field col s12 m3">
-                <img style="box-shadow: 0 30px 40px rgba(0,0,0,0.15);border-radius: 25px;width:150px;aspect-ration:1" src="../static/images/184096D.png">
-                <p style="color: white;margin-top:-3px;font-size: 17px;font-family: cursive;">M.H.I. Maduhansi</p>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="width:30px;aspect-ration:1;filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);" src="../static/images/gmail.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/linkedin.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/facebook.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/insta.png">
-                <br>
-                <img onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" style="filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);width:30px;aspect-ration:1" src="../static/images/hacker.png">
-            </div>
-        </div>
-    </div>
+    {% include footer %}
       
-    </div>
+  </div>
     
     
     {% if scroll_to %}
