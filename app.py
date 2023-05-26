@@ -11,6 +11,7 @@ import pickle
 import cv2
 from FilesForTraining.MainModel import FeatureExtractionMain 
 from FilesForTraining.SubModel1 import FeatureExtractionSub1 
+from FilesForTraining.SubModel2 import FeatureExtractionSub2
 import os
 
 #Create an app object using the Flask class. 
@@ -57,6 +58,25 @@ le1.fit(df1)
 
 
 
+# Sub Model 2----------------------------------------------------------
+#Load the trained main model. (Pickle file)
+model2 = pickle.load(open('models/class_2_model.pkl', 'rb'))
+
+from pandas import read_csv
+df2 = read_csv('FilesForTraining/SubModel2/TestLables.csv')
+
+df2.drop(columns=df2.columns[0], axis=1, inplace=True)
+
+df2 = df2.to_numpy()
+
+
+from sklearn import preprocessing
+le2 = preprocessing.LabelEncoder()
+le2.fit(df2)
+#---------------------------------------------------------------------
+
+
+
 # Routes
 
 #use the route() decorator to tell Flask what URL should trigger our function.
@@ -80,6 +100,9 @@ def predict():
     yellowLeafCurl = 'yellow-leaf-curl.html'
     earlyBlight = 'early-blight.html'
     lateBlight = 'late-blight.html'
+    leafMold = 'leaf-mold.html'
+    mosaicVirus = 'mosaic-virus.html'
+    spiderMites = 'spider-mites.html'
     
     img = request.files['image']
     
@@ -127,7 +150,41 @@ def predict():
             footer=footer,
             yellowLeafCurl=yellowLeafCurl,
             earlyBlight=earlyBlight,
-            lateBlight=lateBlight
+            lateBlight=lateBlight,
+            leafMold=leafMold,
+            mosaicVirus=mosaicVirus,
+            spiderMites=spiderMites
+            )
+    elif (img_prediction[0]=='class_2'):
+        #Extract features and reshape to right dimensions
+        input_img_features_sub_2=FeatureExtractionSub2.feature_extractor(input_img)
+        input_img_features_sub_2 = np.expand_dims(input_img_features_sub_2, axis=0)
+        input_img_for_RF_sub_2 = np.reshape(input_img_features_sub_2, (input_img.shape[0], -1))
+
+        #Predict
+        img_prediction_sub_2 = model2.predict(input_img_for_RF_sub_2)
+        img_prediction_sub_2 = le2.inverse_transform([img_prediction_sub_2])  #Reverse the label encoder to original name
+            
+        print("-----The prediction for image is: ", img_prediction_sub_2)
+        
+        # img_path = os.path.join(app.config['UPLOAD_FOLDER'], copy_img.filename)
+        # copy_img.save(img_path)
+        
+        return render_template(
+            'index.html', 
+            prediction_category=img_prediction[0],
+            prediction_disease=img_prediction_sub_2[0],
+            prediction_text='Disease category is {}'.format(img_prediction[0]),
+            prediction_text1='Disease prediction is {}'.format(img_prediction_sub_2[0]),
+            scroll_to='scroll_here',
+            categories=categories,
+            footer=footer,
+            yellowLeafCurl=yellowLeafCurl,
+            earlyBlight=earlyBlight,
+            lateBlight=lateBlight,
+            leafMold=leafMold,
+            mosaicVirus=mosaicVirus,
+            spiderMites=spiderMites
             )
     else:
         print("Not class")
@@ -145,7 +202,10 @@ def predict():
             footer=footer,
             yellowLeafCurl=yellowLeafCurl,
             earlyBlight=earlyBlight,
-            lateBlight=lateBlight
+            lateBlight=lateBlight,
+            leafMold=leafMold,
+            mosaicVirus=mosaicVirus,
+            spiderMites=spiderMites
             )
 
 

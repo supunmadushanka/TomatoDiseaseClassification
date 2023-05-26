@@ -87,13 +87,10 @@
         </form>
     </div>
          
-        <!-- 
+       <!--
         <br>
-          {{ prediction_text }}
+          {{ prediction_disease }}
        <br>
-       <br>
-         {{ prediction_text1 }}
-      <br>
       -->
       
       <div id="scroll_here">
@@ -117,6 +114,27 @@
           {% if prediction_disease=="Tomato___Late_blight" %}
           
               {% include lateBlight %}
+          
+          {% endif %}
+          
+          
+          {% if prediction_disease=="Leaf_Mold" %}
+              
+              {% include leafMold %}
+              
+          {% endif %}
+          
+          
+          {% if prediction_disease=="Mosaic_Virus" %}
+          
+              {% include mosaicVirus %}
+          
+          {% endif %}
+          
+          
+          {% if prediction_disease=="Spider_Mites" %}
+          
+              {% include spiderMites %}
           
           {% endif %}
           
