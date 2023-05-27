@@ -6,19 +6,15 @@ Created on Wed Dec 28 22:01:04 2022
 """
 
 import pandas as pd
-from skimage.filters import sobel
-from skimage import img_as_ubyte
-from skimage.util import img_as_float
-from FilesForTraining.SubModel1 import PreProcessing 
-import cv2
-import numpy as np
-from skimage.feature import graycomatrix, graycoprops
-from skimage.measure import shannon_entropy
+from FilesForTraining.SubModel1 import PreProcessing
 
 from FilesForTraining.SubModel1.Features.BrownAreaAndCircularity import Brown_Area_And_Circularity
 from FilesForTraining.SubModel1.Features.YellowAreaAndCircularity import Yellow_Area_And_Circularity
 from FilesForTraining.SubModel1.Features.TextureParametersSobel import TextureParametersSobel
-from FilesForTraining.SubModel1.Features.WaterSoakedAreaAndCircularity import Water_Soaked_Area_And_Circularity
+from FilesForTraining.SubModel1.Features.Gradient import GradientFeature
+from FilesForTraining.SubModel1.Features.LaplacianTextureFeatures import LaplacianTextureFeatures
+
+
 
 def feature_extractor_custom(dataset):
     image_dataset = pd.DataFrame()
@@ -29,8 +25,9 @@ def feature_extractor_custom(dataset):
     
     
         #pre processing
-        #bg_rem_img = PreProcessing.bg_remove_int(img)
-        #smoothen = PreProcessing.image_smooth_int(bg_rem_img)
+        # bg_rem_img = PreProcessing.bg_remove_int(img)
+        # smoothen = PreProcessing.image_smooth_int(bg_rem_img)
+        # bg_rem_img = smoothen
         #enhance = PreProcessing.improve_contrast_int(smoothen)
         #segmented = PreProcessing.segment_disease_with_range(bg_rem_img, 45, 140)
         
@@ -44,11 +41,14 @@ def feature_extractor_custom(dataset):
         # FEATURE 2 Laplacian mean and sd
         SobelMeanAndSD=TextureParametersSobel(bg_rem_img)
         
-        # FEATURE 3 Laplacian mean and sd
-        # WaterSoaked=Water_Soaked_Area_And_Circularity(bg_rem_img)
-        
-        # FEATURE 4 perimeter & circularity of yellow
+        # FEATURE 3 perimeter & circularity of yellow
         AreaAndCircularityYellow=Yellow_Area_And_Circularity(bg_rem_img)
+        
+        # FEATURE 4 gradient
+        GradientFeatures = GradientFeature(img)
+        
+        # FEATURE 5 laplacian texture features
+        LaplacianFeatures = LaplacianTextureFeatures(img)
         
 
         df = pd.DataFrame({
@@ -80,7 +80,25 @@ def feature_extractor_custom(dataset):
             'YellowCircularity5': [AreaAndCircularityYellow[9]],
             'NoOfYellowSpots': [AreaAndCircularityYellow[10]],
             
+            'MeanMagnitude': [GradientFeatures[0]], 
+            'SDofMagnitude': [GradientFeatures[1]], 
+            'MeanDirection': [GradientFeatures[2]], 
+            'SDofDirection': [GradientFeatures[3]],
+            
+            'Roughness': [LaplacianFeatures[0]], 
+            'Smoothness': [LaplacianFeatures[1]], 
+            'Coarseness': [LaplacianFeatures[2]], 
+            'Regularity': [LaplacianFeatures[3]], 
+            'Contrast': [LaplacianFeatures[4]], 
+            'Homogeneity': [LaplacianFeatures[5]], 
+            'Entropy':  [LaplacianFeatures[6]], 
+            'Energy':  [LaplacianFeatures[7]], 
+            'Correlation':  [LaplacianFeatures[8]], 
+            'Directionality':  [LaplacianFeatures[9]], 
+            'FractalDimension': [LaplacianFeatures[10]],
+            
             })
+        
         
         #Append features from current image to the dataset
         image_dataset = pd.concat([image_dataset,df])

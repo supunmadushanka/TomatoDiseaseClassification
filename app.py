@@ -161,8 +161,16 @@ def predict():
     if(img_prediction[0]=='class_1'):
         #Extract features and reshape to right dimensions
         input_img_features_sub_1=FeatureExtractionSub1.feature_extractor_custom(input_img)
+        
+        # remove nan values by 0 and infinite values by large value
+        input_img_features_sub_1[np.isnan(input_img_features_sub_1)] = 0
+        
         input_img_features_sub_1 = np.expand_dims(input_img_features_sub_1, axis=0)
         input_img_for_RF_sub_1 = np.reshape(input_img_features_sub_1, (input_img.shape[0], -1))
+
+        # remove infinite values by large value
+        large_num = 1e9
+        input_img_for_RF_sub_1[np.isinf(input_img_for_RF_sub_1)] = np.sign(input_img_for_RF_sub_1[np.isinf(input_img_for_RF_sub_1)]) * large_num
 
         #Predict
         img_prediction_sub_1 = model1.predict(input_img_for_RF_sub_1)
@@ -194,10 +202,22 @@ def predict():
             healthy=healthy
             )
     elif (img_prediction[0]=='class_2'):
+        desired_size = (256, 256)
+        input_img2 = cv2.resize(img, desired_size)
+        input_img2 = np.expand_dims(input_img2, axis=0)
+        
         #Extract features and reshape to right dimensions
-        input_img_features_sub_2=FeatureExtractionSub2.feature_extractor(input_img)
+        input_img_features_sub_2=FeatureExtractionSub2.feature_extractor(input_img2)
+        
+        # remove nan values by 0 and infinite values by large value
+        input_img_features_sub_2[np.isnan(input_img_features_sub_2)] = 0
+        
         input_img_features_sub_2 = np.expand_dims(input_img_features_sub_2, axis=0)
         input_img_for_RF_sub_2 = np.reshape(input_img_features_sub_2, (input_img.shape[0], -1))
+
+        # remove infinite values by large value
+        large_num = 1e9
+        input_img_for_RF_sub_2[np.isinf(input_img_for_RF_sub_2)] = np.sign(input_img_for_RF_sub_2[np.isinf(input_img_for_RF_sub_2)]) * large_num
 
         #Predict
         img_prediction_sub_2 = model2.predict(input_img_for_RF_sub_2)
@@ -237,8 +257,16 @@ def predict():
         
         #Extract features and reshape to right dimensions
         input_img_features_sub_3=FeatureExtractionSub3.feature_extractor(input_img3)
+        
+        # remove nan values by 0 and infinite values by large value
+        input_img_features_sub_3[np.isnan(input_img_features_sub_3)] = 0
+        
         input_img_features_sub_3 = np.expand_dims(input_img_features_sub_3, axis=0)
         input_img_for_RF_sub_3 = np.reshape(input_img_features_sub_3, (input_img3.shape[0], -1))
+
+        # remove infinite values by large value
+        large_num = 1e9
+        input_img_for_RF_sub_3[np.isinf(input_img_for_RF_sub_3)] = np.sign(input_img_for_RF_sub_3[np.isinf(input_img_for_RF_sub_3)]) * large_num        
 
         #Predict
         img_prediction_sub_3 = model3.predict(input_img_for_RF_sub_3)
