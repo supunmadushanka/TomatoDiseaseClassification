@@ -138,6 +138,33 @@
           
           {% endif %}
           
+
+          {% if prediction_disease=="Tomato___Bacterial_spot" %}
+          
+              {% include bacterialSpot %}
+          
+          {% endif %}
+          
+          
+          {% if prediction_disease=="Tomato___Septoria_leaf_spot" %}
+          
+              {% include septoriaLeafSpot %}
+          
+          {% endif %}
+          
+          
+          {% if prediction_disease=="powdery_mildew" %}
+          
+              {% include powderyMildew %}
+          
+          {% endif %}
+          
+          {% if prediction_disease=="Healthy" %}
+          
+              {% include healthy %}
+          
+          {% endif %}
+          
        </div>
           
           
